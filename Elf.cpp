@@ -38,29 +38,6 @@ uint8_t elf::GetClass(void *data) {
     return (head->e_ident[EI_CLASS]);
 }
 
-/*switch( header->e_ident[ 4 ] )
-    {
-        case 1:     return ELF64_ObjectFileClass32;
-        case 2:     return ELF64_ObjectFileClass64;
-        default:    break;
-    }*/
-
-/*static const char *
-get_elf_class (unsigned int elf_class)
-{
-static char buff[32];
-
-switch (elf_class)
-{
-case ELFCLASSNONE: return _("none");
-case ELFCLASS32:   return "ELF32";
-case ELFCLASS64:   return "ELF64";
-default:
-snprintf (buff, sizeof (buff), _("<unknown: %x>"), elf_class);
-return buff;
-}
-}*/
-
 void elf::Close(void* data) {
     if(data) {
         free(data);

@@ -114,36 +114,6 @@ void remote::Module::CacheSymbolData64(void* buffer) {
     }
 }
 
-/*	size = ehdr.e_shentsize * ehdr.e_shnum;
-	shdr = (Elf32_Shdr *) xmalloc(size);
-	rv = pread(fd, shdr, size, ehdr.e_shoff);
-	if (0 > rv) {
-		perror("read");
-		goto out;
-	}
-	if (rv != size) {
-		fprintf(stderr, "elf error");
-		goto out;
-	}
-
-size = shdr[ehdr.e_shstrndx].sh_size;
-shstrtab = (char *) xmalloc(size);
-rv = pread(fd, shstrtab, size, shdr[ehdr.e_shstrndx].sh_offset);
-if (0 > rv) {
-perror("read");
-goto out;
-}
-if (rv != size) {
-fprintf(stderr, "elf error\n");
-goto out;
-}
-
-symh = dynsymh = NULL;
-strh = dynstrh = NULL;
-for (i = 0, p = shdr; i < ehdr.e_shnum; i++, p++)
-if (SHT_SYMTAB == p->sh_type) {
-if (symh) {*/
-
 void remote::Module::CacheSymbolData() {
     if(GetPath().length() == 0) {
         std::cout << "No path!" << std::endl;
